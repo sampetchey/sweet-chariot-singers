@@ -21,4 +21,5 @@ urlpatterns = [
     path("music/", include("music.urls")),
     path("news/", include("news.urls")),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
 ]
