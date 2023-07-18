@@ -5,7 +5,7 @@ body, html {
 .header-logo {
     max-width: 60px;
     float: left;
-    background-image: url("assets/images/treble-home.png");
+    background-image: url("media/treble-home.png");
     margin: 0 10px 0 0;
 }
   
