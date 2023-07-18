@@ -4,22 +4,38 @@
 <html lang="en">
 
 <head>
+
+  {% block meta %}  
   <meta http-equiv = "X-UA-compatible" content="ie=edge">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  {% endblock %}
+
+  {% block extra_meta %}
+  {% endblock %}
+
+  {% block corecss %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link type="text/css" rel="stylesheet" href="assets/css/materialize.css"  media="screen,projection"/>
   <link rel="stylesheet" href="assets/css/style.css">
-  
+  {% endblock %}
+
+  {% block extra_css %}
+  {% endblock %}
+
+  {% block corejs %}
   <script type="text/javascript" src="assets/js/materialize.js"></script>
   <script src="assets/js/script.js"></script>
+  {% endblock %}
+
+  {% block extra_js %}
+  {% endblock %}
   
-  <title>Sweet Chariot Singers</title>
+  <title>Sweet Chariot Singers {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
-  {% comment %} <header>
+  <header>
     <nav>
       <div class="nav-wrapper purple darken-2 z-depth-2">
         <a href="index.html"><img class="header-logo" src="assets/images/treble-home.png"
@@ -50,7 +66,16 @@
       <li><a href="songs.html">Learn New Songs</a></li>
     </ul>
   </header>
+
+    {% if messages %}
+    <div class="container"></div>
+    {% endif %}
+
+
+
   
+{% comment %} 
+
   <div class="container center">
     <img class="responsive-img" src="assets/images/sweet-chariot-singers_logo5.png"
       alt="Sweet Chariot Singers, Twickenham logo">
