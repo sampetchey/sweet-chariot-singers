@@ -8,3 +8,6 @@ def index(request):
 
 def visit(request):
     return render(request, 'home/visit.html')
+
+def team(request):
+    return render(request, 'home/team.html')
