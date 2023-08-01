@@ -23,5 +23,9 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
-   "editor.defaultFormatter": "HookyQR.beautify"
+   "editor.defaultFormatter": "HookyQR.beautify",
+   "[django-html]": {
+      "editor.defaultFormatter": "junstyle.vscode-django-support"
+   },
+   "liveServer.settings.port": 5501
 }
