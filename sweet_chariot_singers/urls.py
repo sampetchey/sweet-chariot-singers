@@ -24,7 +24,9 @@ urlpatterns = [
     path("news/", include("news.urls")),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('subscribe/', include('subscribe.urls')),
     path('', include('home.urls')),
+    path('visit/', include('home.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

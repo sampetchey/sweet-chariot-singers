@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'home',
     'news',
+    'subscribe',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -161,6 +162,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    "/Users/samuelpetchey/code institute/sweet-chariot-singers/static", # check pathway on deployment
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
