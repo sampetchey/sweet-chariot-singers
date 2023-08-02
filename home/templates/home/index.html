@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container center">
-    <img class="responsive-img" src="assets/images/sweet-chariot-singers_logo5.png"
+    <img class="responsive-img" src="media/sweet-chariot-singers_logo5.png"
       alt="Sweet Chariot Singers, Twickenham logo">
     <a class="waves-effect waves-light green darken-2 btn-large">Register Your Interest</a>
   </div>
@@ -16,4 +16,10 @@
         at the Royal Military School of Music, Kneller Hall. The high energy, harmony</p>
     </div>
   </div>
+  
+  
+  {% if img_obj %}
+    <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+    <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+  {% endif %}
 {% endblock %}

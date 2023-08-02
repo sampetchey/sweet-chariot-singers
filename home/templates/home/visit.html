@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container center">
+    <div>
+      <img class="responsive-img" src="media/knellerhall_350.jpg"
+      alt="Rehearsal location Kneller Hall, Twickenham">
+    </div>
+    <div>
+      <h3>Rehearsals and what to expect...</h3>
+    </div>
+    <div>
+      <h5>Location and Time</h5>
+      <p>Rehearsals take place Monday Evenings at 7.30pm in the Practice Hall at Kneller Hall, Twickenham, TW2 7DU</p>
+      <h5>Choir Parts</h5>
+      <p>Sweet Chariot Singers is an all female choir. We sing in many styles and in various part arrangements</p>
+      <p>Singers are divided into:</p>
+      <p>Tenor - often a descant harmony over the melody</p>
+      <p>Lead - the lead part, often singing the principle melody</p>
+      <p>Baritone - in a similar range to the lead, but often in harmony with it. Written in the bass clef</p>
+      <p>Bass - the lowest part providing the root harmony</p>
+      <h5></h5>
+    </div>
+
+    
+    <a class="waves-effect waves-light green darken-2 btn-large">Register Your Interest</a>
+  </div>
+  <div class="section">
+    <div class="container">
+      
+    </div>
+
+  </div>
+  <div class="section">
+    <h5>Section 2</h5>
+    <p>Stuff</p>
+  </div>
+    {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+  
+  {% if img_obj %}
+    <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+    <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+  {% endif %}
+{% endblock %}
