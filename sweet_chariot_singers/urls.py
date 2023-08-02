@@ -24,8 +24,9 @@ urlpatterns = [
     path("music/", include("music.urls")),
     path("news/", include("news.urls")),
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('subscribe/', include('subscribe.urls')),
+    path('accounts/', include('django.contrib.auth.urls', 'signup.urls')),
+    # path('subscribe/', include('subscribe.urls')),
+    # path('registration/', include('subscribe.urls')),
     path('', include('home.urls')),
 ]
 if settings.DEBUG:

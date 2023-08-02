@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'home',
     'news',
-    'subscribe',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -78,8 +77,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth'),
+            os.path.join(BASE_DIR, 'templates/'),
+            os.path.join(BASE_DIR, 'templates', 'allauth', 'registration'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
