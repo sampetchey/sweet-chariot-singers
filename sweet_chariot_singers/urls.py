@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
 
 urlpatterns = [
     path("music/", include("music.urls")),
     path("news/", include("news.urls")),
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('subscribe/', include('subscribe.urls')),
     path('', include('home.urls')),
 ]

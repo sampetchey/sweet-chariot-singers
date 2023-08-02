@@ -44,8 +44,20 @@
           <li><a href="{% url 'news' %}">News & Events</a></li>
           <li><a href="{% url 'visit' %}">Visit a Rehearsal</a></li>
           <li><a href="{% url 'team' %}">Meet the Team</a></li>
+
+          {% if user.is_authenticated %}
           <li><a href="songs.html">Learn New Songs</a></li>
-          <a class='dropdown-trigger btn' href='{% url 'view_subscribe' %}' data-target='dropdown1'>Log In</a>
+          <li>User: {{ user.get_username }}</li>
+          <li><a class='dropdown-trigger btn' href='/accounts/logout?next=/'>Logout</a></li>
+        {% else %}
+          <a class='dropdown-trigger btn' href='/accounts/login' data-target='dropdown1'>Already a Member? Log In</a>
+          <a class='dropdown-trigger btn' href='{% url 'view_subscribe' %}' data-target='dropdown2'>Subscribe</a>
+          {% comment %} <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li> {% endcomment %}
+        {% endif %}
+          
+
+          
+          
         </ul>
         <ul id='dropdown1' class='dropdown-content'>
           <li><a href="#!">one</a></li>
