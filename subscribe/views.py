@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 
 from .forms import Membershipform
+from .server import checkout_session
 
 def subscribe(request):
     fee = request.session.get('fee', {})
