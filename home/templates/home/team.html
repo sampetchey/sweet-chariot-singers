@@ -31,17 +31,13 @@
     </div>
   </div>
   <div class="row">
+    {% for vacancy in vacancies %}
     <div class="col s6 card-panel grey lighten-5 z-depth-1 team-info">
       <span class="black-text">
-        <h5>Vacancy - Assistant Music Director</h5><br />
-        <p>We are looking for a confident, friendly and encouraging singer and voice coach to be our Assistant Music Director. Proven ability to read music, sight-sing, conduct and lead vocal warm-ups is essential. Previous experience is valued but not essential. Duties include working alongside the Music Director in taking rehearsals, suggesting repertoire and preparing for performances and competitions</p>
+        <h5>Vacancy - {{ vacancy.job_title }}</h5><br />
+        <p>{{ vacancy.content }}</p>
       </span>
     </div>
-    <div class="col s6 card-panel grey lighten-5 z-depth-1 team-info">
-      <span class="black-text">
-        <h5>Vacancy - Choir Wardrobe Manager</h5><br />
-        <p>Looking amazing for performances is an essential element of Sweet Adeline Choruses. This is part of what choirs are judged on in competitions</p>
-      </span>
-    </div>
+    {% endfor %}
   </div>
 {% endblock %}
