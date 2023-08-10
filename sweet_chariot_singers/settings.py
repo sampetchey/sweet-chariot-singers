@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'news',
     'subscribe',
+    'subscribe.apps.SubscribeConfig',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
