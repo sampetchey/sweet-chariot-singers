@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'subscribe/css/subscribe.css' %}">
+{% endblock %}
+
+{% block content %}
+
+</div>
+<div class="container">
+    <h5><strong>Sweet Chariot Singers - Membership Form</strong></h5>
+    <form action="{% url 'subscribe' %}" method="POST" id="payment-form" class="col s12">
+        {% csrf_token %} 
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="full_name" type="text" class="validate">
+          <label for="full_name">Full Name</label>
+          {{ Membershipform.full_name }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+          {{ Membershipform.email }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="icon_telephone" type="tel" class="validate">
+          <label for="icon_telephone">Telephone</label>
+          {{ Membershipform.phone_number }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="street_address1" type="text" class="validate">
+          <label for="street_address1">Street Address 1</label>
+          {{ Membershipform.street_address1 }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="street_address2" type="text" class="validate">
+          <label for="street_address2">Street Address 2</label>
+          {{ Membershipform.street_address2 }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="town_or_city" type="text" class="validate">
+          <label for="town_or_city">Town</label>
+          {{ Membershipform.town_or_city }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="postcode" type="text" class="validate">
+          <label for="postcode">Town</label>
+          {{ Membershipform.postcode }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="voice_type" type="text" class="validate">
+          <label for="voice_type">Voice type</label>
+          {{ Membershipform.voice_type }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="Membership fee £30/month" id="disabled" type="text" class="validate">
+          <label for="disabled">Fee</label>
+          {{ Membershipform.membership_fee }}
+        </div>
+      </div>      
+  </div>
+<div class="container">
+    <legend class="fieldset-label small text-purple">Payment</legend>
+    <!--- Stripe card element -->
+    <div class="row" id="card-element"></div>
+    <!--- Used to display form errors -->
+    <div class="row red" id="card-errors" role="alert"></div>
+    <a class="waves-effect waves-light green darken-2 btn-large submitBtn" id="submitBtn" data-target="submitBtn">Submit Membership Form</a>
+</div>
+
+
+      {% comment %} <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col s12">
+          This is an inline input field:
+          <div class="input-field inline">
+            <input id="email_inline" type="email" class="validate">
+            <label for="email_inline">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+          </div>
+        </div>
+      </div> {% endcomment %}
+    </form>
+  </div>
+  
+  {% if img_obj %}
+    <h3>Succesfully uploaded : {{img_obj.title}}</h3>
+    <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+  {% endif %}
+{% endblock %}
