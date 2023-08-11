@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from .models import Vacancy
-
+from .forms import VacancyForm
 # Create your views here.
 
 def index(request):
@@ -17,3 +18,31 @@ def team(request):
     }
     
     return render(request, 'home/team.html', context)
+
+
+def save_vacancy(request):
+
+    if request.method == "POST":
+        # role = admin
+        form = VacancyForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect("/team")
+        
+        else:
+            form = VacancyForm()
+
+        return render(request, "team.html", {"form": form}) 
+
+
+def delete_vacancy(request, id):
+
+    if request.method == "POST":
+        obj = get_object_or_404(Vacancy, id = id)
+        obj.delete()
+
+        return HttpResponseRedirect("/team")
+
+
+    return render(request, "team.html", {"form": form}) 

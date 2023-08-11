@@ -30,23 +30,31 @@
         <span class="black-text">
           <h5>Vacancy - {{ vacancy.job_title }}</h5><br />
           <p>{{ vacancy.content }}</p>
+          <form action="/vacancies/delete/{{ vacancy.id }}" method="post">
+            {% csrf_token %}
+            <button class="waves-effect waves-light btn red" type="Submit">Delete</button>
+          </form>
         </span>
-      </div>
+      </div>    
     {% endfor %}
-    <div class="container">
-      <a><i class="medium material-icons modal-trigger text-black" data-target="modal1">add</i></a>
+  </div>
+  <div class="container center">
+      <a><i class="medium material-icons modal-trigger" data-target="modal1">add</i></a>
       {% comment %} <a class="waves-effect waves-light btn modal-trigger" data-target="modal1">Modal</a> {% endcomment %}
-  
+  </div>
       <!-- Modal Structure -->
       <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
+        <form class="modal-content" action="/vacancies/save" method="post">
+          {% csrf_token %}
+          <label for="job_title">Job title: </label>
+          <input id="job_title" type="text" name="job_title" value="">
+          <label for="content">Content: </label>
+          <input id="content" type="text" name="content">
+          <input type="submit" value="Submit">
+        </form>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
         </div>
       </div>
     </div>
-  </div>
 {% endblock %}
