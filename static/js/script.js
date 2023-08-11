@@ -1,5 +1,5 @@
 var options = {
-    inDuration : 5000 
+    inDuration : 1000 
 }
 
 document.addEventListener('DOMContentLoaded', function() {
