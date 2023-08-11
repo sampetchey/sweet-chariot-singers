@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('subscribe/', include('subscribe.urls')),
     # path('registration/', include('subscribe.urls')),
+    path('', include('home.urls')),
     path('', include('payments.urls')),
 ]
 if settings.DEBUG:

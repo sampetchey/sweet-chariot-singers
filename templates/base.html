@@ -54,7 +54,7 @@
           <li><a class='dropdown-trigger btn' href='/accounts/logout?next=/'>Logout</a></li>
         {% else %}
           <a class='dropdown-trigger btn' href='/accounts/login' data-target='dropdown1'>Already a Member? Log In</a>
-          <a class='dropdown-trigger btn' href='/accounts/signup' data-target='dropdown2'>Subscribe</a>
+          <a class='dropdown-trigger btn' href='{% url 'subscribe' %}' data-target='dropdown2'>Join the Choir</a>
           {% comment %} <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li> {% endcomment %}
         {% endif %}
           

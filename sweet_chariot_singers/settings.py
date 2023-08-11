@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'home',
     'news',
+    'subscribe',
     'payments.apps.PaymentsConfig',
 ]
 
