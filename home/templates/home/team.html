@@ -33,11 +33,17 @@
           <form action="/vacancies/delete/{{ vacancy.id }}" method="post">
             {% csrf_token %}
             <button class="waves-effect waves-light btn red" type="Submit">Delete</button>
-          </form>
+          </form> 
+          <form action="/vacancies/update/{{ vacancy.id }}" method="post">
+            {% csrf_token %}
+            <button class="waves-effect waves-light btn modal-trigger" type="Submit">Update</a>
+          </form>  
         </span>
       </div>    
     {% endfor %}
   </div>
+  
+  ...
   <div class="container center">
       <a><i class="medium material-icons modal-trigger" data-target="modal1">add</i></a>
       {% comment %} <a class="waves-effect waves-light btn modal-trigger" data-target="modal1">Modal</a> {% endcomment %}
@@ -50,6 +56,27 @@
           <input id="job_title" type="text" name="job_title" value="">
           <label for="content">Content: </label>
           <input id="content" type="text" name="content">
+          <input type="submit" value="Submit">
+        </form>
+        <form action="/vacancies/update/{{ vacancy.id }}" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Submit">
+       </form>
+
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        </div>
+      </div>
+      <div id="modal2" class="modal">
+        <form class="modal-content" action="/vacancies/update" method="post">
+          {% csrf_token %}
+          {% for vacancy in vacancies.id %}
+          <label for="job_title">Job title: </label>
+          <input id="job_title" type="text" name="job_title" value="{{ vacancy.job_title}}">
+          <label for="content">Content: </label>
+          <input id="content" type="text" name="content" value="{{ vacancy.content }}">
+          {% endfor %}
           <input type="submit" value="Submit">
         </form>
         <div class="modal-footer">

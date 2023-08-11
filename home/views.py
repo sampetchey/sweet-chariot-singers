@@ -45,4 +45,34 @@ def delete_vacancy(request, id):
         return HttpResponseRedirect("/team")
 
 
-    return render(request, "team.html", {"form": form}) 
+    return render(request, "team.html", {"form": form})
+
+
+def update_vacancy(request, id):
+    vacancy = Vacancy.objects.get(id=id)
+    form = VacancyForm(request.POST, instance=vacancy)
+    if form.is_valid():
+        form.save()
+
+        return HttpResponseRedirect("/team")
+    
+    else:
+        form = VacancyForm()
+
+
+    return render(request, "team.html", {"form": form})
+
+# def update_vacancy(request, id):
+#     vacancy = Vacancy.objects.get(id=id)
+
+#     if request.method == "POST": 
+#         form = VacancyForm(request.POST, instance=vacancy)
+#         if form.is_valid():
+#             form.save()
+
+#             return HttpResponseRedirect("/team")
+        
+#         else:
+#             form = VacancyForm(instance=vacancy)
+
+#         return render(request, "team.html", {"form": form}) 
